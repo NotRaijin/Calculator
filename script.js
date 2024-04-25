@@ -89,8 +89,16 @@ numberButtons.forEach(button => {
 
 operatorButtons.forEach(button => {
     button.addEventListener("click", () => {
-        operator = button.textContent;
-        input.textContent = `${firstNumber} ${operator}`;
+        if (firstNumber !== 0 && secondNumber !== 0 && operator !== '') {
+            operate();
+            firstNumber = parseFloat(output.textContent);
+            secondNumber = 0;
+            operator = button.textContent;
+            input.textContent = `${firstNumber} ${operator}`;
+        } else {
+            operator = button.textContent;
+            input.textContent = `${firstNumber} ${operator}`;
+        }
     });
 });
 
